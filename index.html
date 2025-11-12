@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resto & Caffeine Corner</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3e2723, #795548);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      /* Hero Section */
+      .alghi_hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93")
+          center/cover no-repeat;
+        padding: 0 20px;
+      }
+
+      .alghi_hero h1 {
+        font-size: 48px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px 30px;
+        border-radius: 12px;
+        animation: fadeIn 2s ease-in-out;
+        line-height: 1.3;
+      }
+
+      .alghi_hero p {
+        margin-top: 20px;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 10px 20px;
+        border-radius: 10px;
+        animation: slideUp 2s ease;
+        max-width: 600px;
+      }
+
+      .alghi_button {
+        margin-top: 30px;
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 12px 25px;
+        border-radius: 25px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .alghi_button:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /*  RESPONSIVE DESIGN */
+
+      /* Tablet */
+      @media (max-width: 992px) {
+        .alghi_nav {
+          justify-content: center;
+          flex: 1 100%;
+          margin-top: 10px;
+        }
+
+        .alghi_nav a {
+          font-size: 15px;
+        }
+
+        .alghi_hero h1 {
+          font-size: 38px;
+        }
+
+        .alghi_hero p {
+          font-size: 16px;
+        }
+      }
+
+      /* HP */
+      @media (max-width: 600px) {
+        #alghi_header {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 10px 20px;
+        }
+
+        .alghi_nav {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
+
+        .alghi_logo {
+          margin-bottom: 10px;
+        }
+
+        .alghi_hero {
+          padding: 0 15px;
+          background-position: center;
+        }
+
+        .alghi_hero h1 {
+          font-size: 28px;
+          padding: 10px 20px;
+        }
+
+        .alghi_hero p {
+          font-size: 14px;
+          padding: 8px 15px;
+        }
+
+        .alghi_button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="alghi_hero">
+      <h1>Selamat Datang di Resto & Caffeine Corner</h1>
+      <p>
+        Temukan kenikmatan kopi terbaik yang diracik dengan cinta dan semangat
+        setiap harinya.
+      </p>
+      <button class="alghi_button" onclick="goToMenu()">Lihat Menu Kami</button>
+    </section>
+
+    <script>
+      function goToMenu() {
+        alert("Kamu akan dibawa ke halaman Menu!");
+        window.location.href = "menu.html";
+      }
+    </script>
+  </body>
+</html>

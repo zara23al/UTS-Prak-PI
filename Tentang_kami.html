@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #4e342e, #3e2723);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /*  Header  */
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      /* ===== SECTION TENTANG KAMI ===== */
+      .alghi_about {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 40px;
+        text-align: left;
+        gap: 50px;
+      }
+
+      .alghi_about img {
+        width: 420px;
+        border-radius: 20px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease;
+      }
+
+      .alghi_about img:hover {
+        transform: scale(1.05);
+      }
+
+      .alghi_about_text {
+        max-width: 600px;
+      }
+
+      .alghi_about_text h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .alghi_about_text p {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .alghi_mission {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        padding: 30px;
+        margin-top: 30px;
+      }
+
+      .alghi_mission h2 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      /* ===== RESPONSIVE DESIGN ===== */
+      @media (max-width: 992px) {
+        .alghi_about {
+          padding: 60px 20px;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .alghi_about img {
+          width: 80%;
+          max-width: 350px;
+        }
+
+        .alghi_about_text {
+          text-align: center;
+        }
+
+        .alghi_about_text h1 {
+          font-size: 30px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #alghi_header {
+          flex-direction: column;
+          text-align: center;
+          padding: 10px 20px;
+        }
+
+        .alghi_nav {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .alghi_about {
+          padding: 40px 15px;
+        }
+
+        .alghi_about_text h1 {
+          font-size: 26px;
+        }
+
+        .alghi_about_text p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- ===== SECTION TENTANG KAMI ===== -->
+    <section class="alghi_about">
+      <img
+        src="https://images.unsplash.com/photo-1682943876503-b9dc0060f84b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+        alt="Caffeine Corner Interior"
+      />
+
+      <div class="alghi_about_text">
+        <h1>Tentang Resto & Caffeine Corner</h1>
+        <p>
+          Selamat datang di <strong>Resto & Caffeine Corner</strong> — ruang
+          hangat di mana setiap tegukan kopi dan setiap gigitan hidangan dibuat
+          dengan sepenuh hati. Kami bukan sekadar tempat ngopi, tetapi tempat
+          berkumpulnya rasa, aroma, dan cerita yang menyatu dalam suasana nyaman
+          dan penuh keakraban. <br /><br />
+          Didirikan pada tahun <strong>2025</strong>, Resto & Caffeine Corner
+          hadir sebagai kombinasi antara <em>resto</em> dan
+          <em>coffee bar</em> modern yang memadukan cita rasa khas Nusantara
+          dengan gaya kekinian. Kami berkomitmen menghadirkan pengalaman kuliner
+          dan kopi yang tak hanya nikmat di lidah, tapi juga menghangatkan hati.
+        </p>
+
+        <div class="alghi_mission">
+          <h2>Misi Kami</h2>
+          <p>
+            Menyajikan kopi dan makanan berkualitas tinggi dengan pelayanan
+            terbaik.<br />
+            Mendukung petani lokal dengan menggunakan biji kopi dan bahan segar
+            dari sumber berkelanjutan.<br />
+            Menjadi tempat di mana setiap pengunjung merasa seperti di rumah
+            sendiri — santai, ramah, dan penuh inspirasi.<br />
+            Menciptakan ruang kreatif bagi komunitas untuk berbagi ide, musik,
+            dan tawa di setiap sudut meja kami.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

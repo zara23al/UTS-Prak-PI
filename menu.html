@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #4e342e, #3e2723);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      .alghi_menu_section {
+        text-align: center;
+        padding: 80px 20px;
+      }
+
+      .alghi_menu_section h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .alghi_menu_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 40px;
+      }
+
+      .alghi_card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .alghi_card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      }
+
+      .alghi_card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .alghi_card h3 {
+        color: #ffcc80;
+        margin-bottom: 10px;
+      }
+
+      .alghi_order_btn {
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .alghi_order_btn:hover {
+        background-color: #ffe0b2;
+        transform: scale(1.1);
+      }
+
+      .alghi_back_button {
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 30px;
+        transition: transform 0.3s;
+      }
+
+      .alghi_back_button:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="alghi_menu_section">
+      <h1>Pilih Kategori Menu</h1>
+      <div class="alghi_menu_grid">
+        <!-- Makanan -->
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1586511925558-a4c6376fe65f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+            alt="Makanan"
+          />
+          <h3>Makanan</h3>
+          <p>Pilih berbagai makanan lezat khas kami.</p>
+          <button class="alghi_order_btn" onclick="bukaMenu('makanan')">
+            Lihat Menu
+          </button>
+        </div>
+
+        <!-- Kopi -->
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+            alt="Kopi"
+          />
+          <h3>Kopi</h3>
+          <p>Aroma kopi terbaik untuk pecinta kafein sejati.</p>
+          <button class="alghi_order_btn" onclick="bukaMenu('kopi')">
+            Lihat Menu
+          </button>
+        </div>
+
+        <!-- Non-Kopi -->
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1657313666513-70770d329ef4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+            alt="Non-Kopi"
+          />
+          <h3>Non-Kopi</h3>
+          <p>Untuk kamu yang ingin nikmat tanpa kafein.</p>
+          <button class="alghi_order_btn" onclick="bukaMenu('nonkopi')">
+            Lihat Menu
+          </button>
+        </div>
+
+        <!-- Dessert -->
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1560180474-e8563fd75bab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+            alt="Dessert"
+          />
+          <h3>Dessert</h3>
+          <p>Manisnya penutup yang sempurna untuk hari kamu.</p>
+          <button class="alghi_order_btn" onclick="bukaMenu('dessert')">
+            Lihat Menu
+          </button>
+        </div>
+      </div>
+
+      <button class="alghi_back_button" onclick="goHome()">
+        ← Kembali ke Beranda
+      </button>
+    </section>
+
+    <script>
+      function bukaMenu(kategori) {
+        // Arahkan sesuai kategori yang dipilih
+        if (kategori === "makanan") {
+          window.location.href = "http://127.0.0.1:5500/menu_makanan.html";
+        } else if (kategori === "kopi") {
+          window.location.href = "http://127.0.0.1:5500/menu_kopi.html";
+        } else if (kategori === "nonkopi") {
+          window.location.href = "http://127.0.0.1:5500/menu_nonkopi.html";
+        } else if (kategori === "dessert") {
+          window.location.href = "http://127.0.0.1:5500/menu_dessert.html";
+        }
+      }
+
+      function goHome() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resto & Caffeine Corner</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3e2723, #6d4c41);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /* ===== HEADER ===== */
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      /* ===== SECTION KONTAK ===== */
+      .alghi_contact {
+        text-align: center;
+        padding: 80px 20px;
+      }
+
+      .alghi_contact h1 {
+        color: #ffcc80;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .alghi_contact p {
+        max-width: 600px;
+        margin: 0 auto 50px;
+        line-height: 1.8;
+      }
+
+      /* ===== KONTAINER ===== */
+      .alghi_contact_container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      /* ===== FORM ===== */
+      .alghi_contact_form {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 450px;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .alghi_contact_form input,
+      .alghi_contact_form textarea,
+      .alghi_contact_form button {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .alghi_contact_form input,
+      .alghi_contact_form textarea {
+        background: #fff;
+        color: #3e2723;
+        font-size: 15px;
+      }
+
+      .alghi_contact_form textarea {
+        resize: none;
+        height: 120px;
+      }
+
+      .alghi_contact_form button {
+        background-color: #ffcc80;
+        color: #3e2723;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .alghi_contact_form button:hover {
+        background-color: #ffe0b2;
+        transform: scale(1.05);
+      }
+
+      /* ===== INFO KONTAK ===== */
+      .alghi_contact_info {
+        max-width: 400px;
+        text-align: left;
+        line-height: 1.8;
+      }
+
+      .alghi_contact_info h2 {
+        color: #ffcc80;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .alghi_contact_info p {
+        margin: 8px 0;
+      }
+
+      .alghi_contact_info strong {
+        color: #ffe0b2;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .alghi_contact h1 {
+          font-size: 28px;
+        }
+
+        .alghi_contact_container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .alghi_contact_form,
+        .alghi_contact_info {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- ===== SECTION KONTAK ===== -->
+    <section class="alghi_contact">
+      <h1>Hubungi Kami</h1>
+      <p>
+        Punya pertanyaan, saran, atau ingin bekerja sama dengan kami?
+        Silakan kirim pesan melalui form berikut, tim kami akan segera
+        menghubungi Anda kembali.
+      </p>
+
+      <div class="alghi_contact_container">
+        <!-- FORM KONTAK -->
+        <div class="alghi_contact_form">
+          <form id="alghiForm">
+            <input type="text" id="nama" placeholder="Nama Lengkap" required />
+            <input type="email" id="email" placeholder="Alamat Email" required />
+            <textarea id="pesan" placeholder="Tulis pesan Anda..." required></textarea>
+            <button type="submit">Kirim Pesan</button>
+          </form>
+        </div>
+
+        <!-- INFO KONTAK -->
+        <div class="alghi_contact_info">
+          <h2>Informasi Kontak</h2>
+          <p><strong>📞 Telepon:</strong> +62 812 3456 7890</p>
+          <p><strong>📧 Email:</strong> info@caffeinecorner.com</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Simulasi pengiriman form (tanpa backend)
+      document.getElementById("alghiForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Terima kasih! Pesan Anda telah dikirim ke tim Caffeine Corner.");
+        this.reset();
+      });
+    </script>
+  </body>
+</html>

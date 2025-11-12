@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #4e342e, #3e2723);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 32px;
+      }
+
+      .alghi_container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+      }
+
+      th {
+        color: #ffcc80;
+      }
+
+      .alghi_total {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .alghi_form {
+        margin-top: 30px;
+      }
+
+      .alghi_form label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: 500;
+      }
+
+      .alghi_form input,
+      .alghi_form select {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        font-size: 16px;
+      }
+
+      .alghi_btn_bayar {
+        margin-top: 25px;
+        width: 100%;
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .alghi_btn_bayar:hover {
+        transform: scale(1.05);
+        background-color: #ffe0b2;
+      }
+
+      .alghi_btn_hapus {
+        background: #ff5252;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .alghi_btn_hapus:hover {
+        background: #ff7777;
+      }
+
+      .alghi_popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #3e2723;
+        padding: 25px 50px;
+        border-radius: 15px;
+        font-weight: bold;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }
+
+      .alghi_btn_back {
+        display: inline-block;
+        margin-top: 20px;
+        color: #ffcc80;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .alghi_btn_back:hover {
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pembayaran Pesanan</h1>
+
+    <div class="alghi_container">
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Menu</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="alghi_tbody"></tbody>
+      </table>
+
+      <div class="alghi_total" id="alghi_total">Total: Rp 0</div>
+
+      <!-- Form Pembayaran -->
+      <div class="alghi_form">
+        <label for="alghi_nama">Nama Pembeli</label>
+        <input type="text" id="alghi_nama" placeholder="Masukkan nama Anda" required />
+
+        <label for="alghi_alamat">Alamat Pengiriman</label>
+        <input type="text" id="alghi_alamat" placeholder="Masukkan alamat lengkap" required />
+
+        <label for="alghi_metode">Metode Pembayaran</label>
+        <select id="alghi_metode" required>
+          <option value="">Pilih metode pembayaran</option>
+          <option value="DANA">DANA</option>
+          <option value="GoPay">GoPay</option>
+          <option value="OVO">OVO</option>
+          <option value="Transfer Bank">Transfer Bank</option>
+        </select>
+
+        <button class="alghi_btn_bayar" onclick="konfirmasiPembayaran()">Bayar Sekarang</button>
+      </div>
+
+      <a href="menu.html" class="alghi_btn_back">← Kembali ke Menu</a>
+    </div>
+
+    <!-- Popup -->
+    <div id="alghi_popup" class="alghi_popup">Pembayaran berhasil!</div>
+
+    <script>
+      // Ambil pesanan dari localStorage
+      let pesanan = JSON.parse(localStorage.getItem("alghi_pesanan")) || [];
+
+      const tbody = document.getElementById("alghi_tbody");
+      const totalText = document.getElementById("alghi_total");
+
+      // Fungsi untuk menampilkan data pesanan
+      function tampilkanPesanan() {
+        tbody.innerHTML = "";
+        let total = 0;
+
+        pesanan.forEach((item, index) => {
+          total += item.harga;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${item.nama}</td>
+            <td>Rp ${item.harga.toLocaleString("id-ID")}</td>
+            <td><button class="alghi_btn_hapus" onclick="hapusPesanan(${index})">Hapus</button></td>
+          `;
+          tbody.appendChild(row);
+        });
+
+        totalText.innerText = `Total: Rp ${total.toLocaleString("id-ID")}`;
+      }
+
+      tampilkanPesanan();
+
+      // Fungsi hapus pesanan
+      function hapusPesanan(index) {
+        pesanan.splice(index, 1);
+        localStorage.setItem("alghi_pesanan", JSON.stringify(pesanan));
+        tampilkanPesanan();
+      }
+
+      // Fungsi konfirmasi pembayaran
+      function konfirmasiPembayaran() {
+        const nama = document.getElementById("alghi_nama").value.trim();
+        const alamat = document.getElementById("alghi_alamat").value.trim();
+        const metode = document.getElementById("alghi_metode").value;
+
+        if (!nama || !alamat || !metode) {
+          alert("Harap isi semua data pembayaran!");
+          return;
+        }
+
+        if (pesanan.length === 0) {
+          alert("Keranjang kamu masih kosong!");
+          return;
+        }
+
+        // Tampilkan popup sukses
+        const popup = document.getElementById("alghi_popup");
+        popup.style.display = "block";
+
+        // Hapus pesanan dari localStorage setelah pembayaran
+        setTimeout(() => {
+          popup.style.display = "none";
+          localStorage.removeItem("alghi_pesanan");
+          window.location.href = "index.html";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

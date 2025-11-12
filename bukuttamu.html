@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buku Tamu</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3e2723, #795548);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /*  HEADER  */
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      /* ===== SECTION BUKU TAMU ===== */
+      .guestbook_section {
+        text-align: center;
+        padding: 80px 20px;
+      }
+
+      .guestbook_section h1 {
+        color: #fff;
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .guestbook_section p {
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      /* ===== FORM ===== */
+      .guest_form {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 600px;
+        margin: 0 auto 60px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      .guest_form input,
+      .guest_form textarea,
+      .guest_form select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: none;
+        font-size: 15px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .guest_form textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      .guest_form button {
+        background-color: #ffcc80;
+        color: #3e2723;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .guest_form button:hover {
+        background-color: #ffe0b2;
+        transform: scale(1.05);
+      }
+
+      /* ===== PESAN PENGUNJUNG ===== */
+      .guest_list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .guest_card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 0.5s ease;
+      }
+
+      .guest_card strong {
+        color: #ffcc80;
+        font-size: 18px;
+      }
+
+      .guest_card small {
+        color: #ccc;
+      }
+
+      .guest_card .rating {
+        color: gold;
+        margin: 5px 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 600px) {
+        .guest_form {
+          padding: 20px;
+        }
+        .guestbook_section h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- SECTION BUKU TAMU -->
+    <section class="guestbook_section">
+      <h1>Buku Tamu</h1>
+      <p>
+        Kami ingin mendengar pendapatmu! Bagikan pengalaman, saran, atau cerita
+        seru selama menikmati suasana di Caffeine Corner.
+      </p>
+
+      <!-- FORM -->
+      <form class="guest_form" id="guestForm">
+        <input type="text" id="nama" placeholder="Nama Kamu *" required />
+        <input type="email" id="email" placeholder="Email (opsional)" />
+        <input type="date" id="tanggal" required />
+        <select id="rating" required>
+          <option value="">Pilih Rating ⭐</option>
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+        <textarea
+          id="pesan"
+          placeholder="Tulis pesan atau pengalamanmu di sini..."
+          required
+        ></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+
+      <!-- LIST PESAN -->
+      <div class="guest_list" id="guestList"></div>
+    </section>
+
+    <script>
+      const form = document.getElementById("guestForm");
+      const list = document.getElementById("guestList");
+
+      // Ambil data dari localStorage
+      let guestData = JSON.parse(localStorage.getItem("guestBook")) || [];
+
+      // Fungsi untuk menampilkan pesan
+      function renderGuestBook() {
+        list.innerHTML = "";
+        guestData.forEach((entry) => {
+          const div = document.createElement("div");
+          div.classList.add("guest_card");
+          div.innerHTML = `
+            <strong>${entry.nama}</strong> <small>(${entry.tanggal})</small>
+            <div class="rating">${"⭐".repeat(entry.rating)}</div>
+            <p>${entry.pesan}</p>
+          `;
+          list.prepend(div);
+        });
+      }
+
+      // Jalankan saat halaman dibuka
+      renderGuestBook();
+
+      // Saat form dikirim
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const newEntry = {
+          nama: document.getElementById("nama").value,
+          email: document.getElementById("email").value,
+          tanggal: document.getElementById("tanggal").value,
+          rating: parseInt(document.getElementById("rating").value),
+          pesan: document.getElementById("pesan").value,
+        };
+
+        guestData.push(newEntry);
+        localStorage.setItem("guestBook", JSON.stringify(guestData));
+
+        form.reset();
+        renderGuestBook();
+      });
+    </script>
+  </body>
+</html>

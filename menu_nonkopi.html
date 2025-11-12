@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Non-Kopi</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #4e342e, #3e2723);
+        color: #fff;
+      }
+      .alghi_section {
+        text-align: center;
+        padding: 60px 20px;
+      }
+      .alghi_menu_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        padding: 40px;
+      }
+      .alghi_card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        transition: 0.3s;
+        width: 220px;
+      }
+      .alghi_card:hover {
+        transform: scale(1.05);
+      }
+      .alghi_card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .alghi_card h3 {
+        color: #ffcc80;
+        margin: 10px 0 5px 0;
+      }
+      .alghi_order_btn,
+      .alghi_checkout_btn,
+      .alghi_back_btn {
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .alghi_order_btn {
+        background: #ffcc80;
+        color: #3e2723;
+        padding: 10px 20px;
+      }
+      .alghi_checkout_btn {
+        background: #d7ccc8;
+        color: #3e2723;
+        padding: 12px 30px;
+        margin-top: 40px;
+      }
+      .alghi_back_btn {
+        background: #ffcc80;
+        color: #3e2723;
+        padding: 12px 25px;
+        margin-top: 20px;
+      }
+      .alghi_popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        color: #3e2723;
+        padding: 20px 40px;
+        border-radius: 15px;
+        display: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="alghi_section">
+      <h1>Menu Non-Kopi</h1>
+
+      <div class="alghi_menu_grid">
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1600271886742-f049cd451bba"
+          />
+          <h3>Jus Jeruk</h3>
+          <p>Rp 13.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Jus Jeruk', 13000)">
+            Pesan
+          </button>
+        </div>
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685"
+          />
+          <h3>Jus Mangga</h3>
+          <p>Rp 15.000</p>
+          <button
+            class="alghi_order_btn"
+            onclick="pesan('Jus Mangga', 15000)"
+          >
+            Pesan
+          </button>
+        </div>
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1592858521880-ce49b8e9194b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+          />
+          <h3>Jus Semangka/h3>
+          <p>Rp 18.000</p>
+          <button
+            class="alghi_order_btn"
+            onclick="pesan('Jus Semangka', 18000)"
+          >
+            Pesan
+          </button>
+        </div>
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1592858167090-2473780d894d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+          />
+          <h3>Jus Apel</h3>
+          <p>Rp 18.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Jus Apel', 18000)">
+            Pesan
+          </button>
+        </div>
+        <div class="alghi_card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1681826664053-5f50e4a0c513?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+          />
+          <h3>Jus Buah Naga</h3>
+          <p>Rp 19.000</p>
+          <button
+            class="alghi_order_btn"
+            onclick="pesan('Jus Buah Naga', 19000)"
+          >
+            Pesan
+          </button>
+        </div>
+        <div class="alghi_card">
+          <img
+            src="https://images.unsplash.com/photo-1536918617072-e74b86065224?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687"
+          />
+          <h3>Jus Strowberry</h3>
+          <p>Rp 18.000</p>
+          <button
+            class="alghi_order_btn"
+            onclick="pesan('Jus Strowberry', 19000)"
+          >
+            Pesan
+          </button>
+        </div>
+      </div>
+
+      <button class="alghi_checkout_btn" onclick="kePembayaran()">
+        Lanjut ke Pembayaran
+      </button>
+      <button class="alghi_back_btn" onclick="kembali()">
+        ← Kembali ke Menu Utama
+      </button>
+    </section>
+
+    <div id="alghi_popup" class="alghi_popup">
+      Pesanan anda diproses, silakan melakukan pembayaran...
+    </div>
+
+    <script>
+      function pesan(nama, harga) {
+        let pesanan = JSON.parse(localStorage.getItem("alghi_pesanan")) || [];
+        pesanan.push({ nama, harga });
+        localStorage.setItem("alghi_pesanan", JSON.stringify(pesanan));
+        const popup = document.getElementById("alghi_popup");
+        popup.style.display = "block";
+        setTimeout(() => (popup.style.display = "none"), 1800);
+      }
+
+      function kePembayaran() {
+        const pesanan = JSON.parse(localStorage.getItem("alghi_pesanan")) || [];
+        if (pesanan.length === 0) alert("Belum ada pesanan!");
+        else window.location.href = "pembayaran.html";
+      }
+
+      function kembali() {
+        window.location.href = "menu.html";
+      }
+    </script>
+  </body>
+</html>

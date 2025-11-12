@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Kopi</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3e2723, #212121);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .alghi_section {
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      .alghi_section h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .alghi_menu_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        padding: 40px;
+        justify-items: center;
+      }
+
+      .alghi_card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        width: 220px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .alghi_card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      }
+
+      .alghi_card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .alghi_card h3 {
+        color: #ffcc80;
+        margin-bottom: 8px;
+      }
+
+      .alghi_order_btn,
+      .alghi_checkout_btn,
+      .alghi_back_btn {
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .alghi_order_btn {
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 10px 20px;
+      }
+
+      .alghi_order_btn:hover {
+        background-color: #ffe0b2;
+        transform: scale(1.1);
+      }
+
+      .alghi_checkout_btn {
+        background-color: #d7ccc8;
+        color: #3e2723;
+        padding: 12px 30px;
+        margin-top: 40px;
+      }
+
+      .alghi_back_btn {
+        background-color: #ffcc80;
+        color: #3e2723;
+        padding: 12px 25px;
+        margin-top: 20px;
+      }
+
+      .alghi_popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #3e2723;
+        padding: 20px 40px;
+        border-radius: 15px;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="alghi_section">
+      <h1>Menu Kopi</h1>
+
+      <div class="alghi_menu_grid">
+        <div class="alghi_card">
+          <img src="https://plus.unsplash.com/premium_photo-1669687924558-386bff1a0469?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688" />
+          <h3>Espresso</h3>
+          <p>Rp 17.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Espresso', 17000)">Pesan</button>
+        </div>
+
+        <div class="alghi_card">
+          <img src="https://images.unsplash.com/photo-1572097459836-9ba0b73bca31?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" />
+          <h3>Cappuccino</h3>
+          <p>Rp 17.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Cappuccino', 17000)">Pesan</button>
+        </div>
+
+        <div class="alghi_card">
+          <img src="https://images.unsplash.com/photo-1558122104-355edad709f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764" />
+          <h3>Latte</h3>
+          <p>Rp 20.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Latte', 20000)">Pesan</button>
+        </div>
+
+        <div class="alghi_card">
+          <img src="https://plus.unsplash.com/premium_photo-1723559972702-2659e41dbb5b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=736" />
+          <h3>Americano</h3>
+          <p>Rp 23.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Americano', 23000)">Pesan</button>
+        </div>
+        <div class="alghi_card">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687" />
+          <h3>Mocha</h3>
+          <p>Rp 19.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Mocha', 19000)">Pesan</button>
+        </div>
+
+        <div class="alghi_card">
+          <img src="https://cdn.pixabay.com/photo/2018/09/11/11/09/latte-macchiato-3669157_1280.jpg" />
+          <h3>Macchiato</h3>
+          <p>Rp 25.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Macchiato', 25000)">Pesan</button>
+        </div>
+
+        <div class="alghi_card">
+          <img src="https://cdn.pixabay.com/photo/2020/11/25/14/40/coffee-5775948_1280.jpg" />
+          <h3>Cold Brew</h3>
+          <p>Rp 14.000</p>
+          <button class="alghi_order_btn" onclick="pesan('Cold Brew', 14000)">Pesan</button>
+        </div>
+      </div>
+
+      <button class="alghi_checkout_btn" onclick="kePembayaran()">Lanjut ke Pembayaran</button>
+      <button class="alghi_back_btn" onclick="kembali()">← Kembali ke Menu Utama</button>
+    </section>
+
+    <div id="alghi_popup" class="alghi_popup">
+      Pesanan anda diproses, silakan melakukan pembayaran...
+    </div>
+
+    <script>
+      function pesan(nama, harga) {
+        let pesanan = JSON.parse(localStorage.getItem("alghi_pesanan")) || [];
+        pesanan.push({ nama, harga });
+        localStorage.setItem("alghi_pesanan", JSON.stringify(pesanan));
+        const popup = document.getElementById("alghi_popup");
+        popup.style.display = "block";
+        setTimeout(() => (popup.style.display = "none"), 1800);
+      }
+
+      function kePembayaran() {
+        const pesanan = JSON.parse(localStorage.getItem("alghi_pesanan")) || [];
+        if (pesanan.length === 0) alert("Belum ada pesanan!");
+        else window.location.href = "pembayaran.html";
+      }
+
+      function kembali() {
+        window.location.href = "menu.html";
+      }
+    </script>
+  </body>
+</html>

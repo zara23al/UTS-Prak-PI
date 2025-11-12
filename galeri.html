@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Resto & Caffeine Corner</title>
+
+    <style>
+      /* GLOBAL STYLE */
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3e2723, #795548);
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      /*  HEADER */
+      #alghi_header {
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .alghi_logo {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .alghi_nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 15px;
+        flex: 2;
+      }
+
+      .alghi_nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 10px;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .alghi_nav a:hover {
+        color: #ffcc80;
+      }
+
+      /*  SECTION GALERI  */
+      .alghi_galeri {
+        text-align: center;
+        padding: 80px 20px;
+      }
+
+      .alghi_galeri h1 {
+        color: #fff;
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+
+      .alghi_galeri p {
+        max-width: 600px;
+        margin: 0 auto 50px;
+        line-height: 1.8;
+      }
+
+      /*  GRID FOTO  */
+      .alghi_galeri_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        justify-items: center;
+      }
+
+      .alghi_galeri_item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .alghi_galeri_item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .alghi_galeri_item img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      /*  OVERLAY TEKS */
+      .alghi_galeri_overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #ffcc80;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .alghi_galeri_item:hover .alghi_galeri_overlay {
+        opacity: 1;
+      }
+
+      /* POPUP PREVIEW */
+      .alghi_popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+      }
+
+      .alghi_popup img {
+        max-width: 85%;
+        max-height: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        animation: fadeIn 0.4s ease;
+      }
+
+      .alghi_popup_close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        font-size: 32px;
+        color: #ffcc80;
+        cursor: pointer;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /*  RESPONSIVE */
+      @media (max-width: 768px) {
+        .alghi_galeri h1 {
+          font-size: 28px;
+        }
+
+        .alghi_logo {
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .alghi_nav {
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .alghi_nav a {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="alghi_header">
+      <div class="alghi_logo">Resto & Caffeine Corner</div>
+      <nav class="alghi_nav">
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/menu.html">Menu</a>
+        <a href="http://127.0.0.1:5500/Tentang_kami.html">Tentang Kami</a>
+        <a href="http://127.0.0.1:5500/galeri.html">Galeri</a>
+        <a href="http://127.0.0.1:5500/lokasi.html">Lokasi</a>
+        <a href="http://127.0.0.1:5500/bukuttamu.html">Buku Tamu</a>
+        <a href="http://127.0.0.1:5500/kontak.html">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- GALERI SECTION -->
+    <section class="alghi_galeri">
+      <h1>Galeri Resto & Caffeine Corner</h1>
+      <p>
+        Lihat suasana hangat dan kelezatan yang kami sajikan — dari aroma kopi,
+        makanan lezat, hingga senyum pelanggan kami setiap hari.
+      </p>
+
+      <div class="alghi_galeri_grid">
+        <!-- Suasana -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661878863830-aa105c36ccda?auto=format&fit=crop&q=80&w=1200"
+            alt="Suasana Resto"
+          />
+          <div class="alghi_galeri_overlay">
+            Suasana Hangat di Caffeine Corner
+          </div>
+        </div>
+
+        <!-- Barista -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://images.unsplash.com/photo-1462539405390-d0bdb635c7d1?auto=format&fit=crop&q=80&w=920"
+            alt="Barista"
+          />
+          <div class="alghi_galeri_overlay">Barista Kami yang Ramah</div>
+        </div>
+
+        <!-- Koki -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?auto=format&fit=crop&q=80&w=1332"
+            alt="Koki"
+          />
+          <div class="alghi_galeri_overlay">Koki Profesional Kami</div>
+        </div>
+
+        <!-- Kopi -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://images.unsplash.com/photo-1578730170052-ac626460cc5f?auto=format&fit=crop&q=80&w=1170"
+            alt="Kopi"
+          />
+          <div class="alghi_galeri_overlay">Kopi dengan Latte</div>
+        </div>
+
+        <!-- Makanan -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=781"
+            alt="Makanan"
+          />
+          <div class="alghi_galeri_overlay">Menu Andalan Kami</div>
+        </div>
+
+        <!-- Pelanggan -->
+        <div class="alghi_galeri_item">
+          <img
+            src="https://images.unsplash.com/photo-1753351051286-6cc8130049ba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1331"
+            alt="Pelanggan"
+          />
+          <div class="alghi_galeri_overlay">Kebersamaan Pelanggan Kami</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPUP PREVIEW -->
+    <div class="alghi_popup" id="alghiPopup">
+      <span class="alghi_popup_close" onclick="closePopup()">✖</span>
+      <img id="popupImg" src="" alt="Preview" />
+    </div>
+
+    <script>
+      //  POPUP INTERAKTIF 
+      const galleryItems = document.querySelectorAll(".alghi_galeri_item img");
+      const popup = document.getElementById("alghiPopup");
+      const popupImg = document.getElementById("popupImg");
+
+      galleryItems.forEach((img) => {
+        img.addEventListener("click", () => {
+          popup.style.display = "flex";
+          popupImg.src = img.src;
+        });
+      });
+
+      function closePopup() {
+        popup.style.display = "none";
+      }
+
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) closePopup();
+      });
+    </script>
+  </body>
+</html>
